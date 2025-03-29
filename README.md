@@ -1,2 +1,2 @@
 # daily-planner05
-pretty self explanatory no?
+pretty self explanatory 

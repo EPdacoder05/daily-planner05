@@ -41,15 +41,6 @@ class WeeklyPlanner(models.Model):
     specific_time = models.TimeField()
     is_recurring = models.CharField(max_length=10, choices=RECURRENCE_CHOICES)
    
-    def __str__(self):
-        priority_marker = "!" if self.is_priority else ""
-        display_status = "Completed" if self.status == 'completed' else "In Progress"
-        time_info = f" ({self.specific_time.strftime('%H:%M')})" if self.time_range else ""
-        recurrence_info = " (Recurring)" if self.is_recurring == 'recurring' else ""
-        task_type_info = f" - {self.get_task_type_display()}" if self.type_of_task else ""
-        return f"{self.task_title} {priority_marker} - {display_status()}{time_info}{recurrence_info}{task_type_info}"
-
-
 class DailyPlanner(models.Model):
     date = models.DateField(default=timezone.now)
     time_range = models.CharField(max_length=10, choices=WeeklyPlanner.TIME_RANGE_CHOICES)

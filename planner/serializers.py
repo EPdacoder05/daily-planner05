@@ -1,7 +1,12 @@
 from rest_framework import serializers
-from .models import Planner  # Replace 'YourModel' with your actual model name
+from .models import WeeklyPlanner, DailyPlanner  # Replace 'YourModel' with your actual model name
 
-class YourModelSerializer(serializers.ModelSerializer):
+class WeeklyPlannerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Planner
+        model = WeeklyPlanner
+        fields = '__all__'
+
+class DailyPlannerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DailyPlanner
         fields = '__all__'
